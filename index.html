@@ -6,16 +6,23 @@
     <link rel="stylesheet" href="./css/output.css" />
     <title>RPS | GAME</title>
   </head>
-  <body class="w-full h-screen bg-[radial-gradient(ellipse_at_center,_rgba(31,55,87,1)_0%,_rgba(19,21,55,1)_70%)]">
-    <header class="w-full pt-12 pb-16">
-      <div class="max-w-175 rounded-[15px] w-full h-37.5 m-auto border-3 border-[#57657C] p-6 flex items-center justify-between">
+  <body
+    class="w-full h-screen bg-[radial-gradient(ellipse_at_center,rgba(31,55,87,1)_0%,rgba(19,21,55,1)_70%)]"
+  >
+    <header class="w-full pt-5 pb-8">
+      <div
+        class="max-w-175 rounded-[15px] w-full h-37.5 m-auto border-3 border-[#57657C] p-6 flex items-center justify-between"
+      >
         <div class="max-w-38.75">
           <img src="./images/tipa-logo-basic.svg" alt="basic-logo" />
         </div>
         <div class="bg-white pt-2 pb-2 pl-10 pr-10 border rounded-lg p-3">
           <div class="flex flex-col items-center">
             <p class="text-[15px] text-[rgba(42,69,194,0.8)] font-medium tracking-[2.5px]">SCORE</p>
-            <h2 class="inline-block text-[64px] font-semibold text-[rgba(86,84,104,1)] leading-none">
+            <h2
+              class="inline-block text-[64px] font-semibold text-[rgba(86,84,104,1)] leading-none"
+              id="score"
+            >
               0
             </h2>
           </div>
@@ -25,32 +32,126 @@
 
     <!-- main -->
 
-    <main class="w-full flex flex-col items-center justify-center">
-      <!-- game -->
-      <section id="gameZone" class="grid grid-rows-2 grid-cols-3 gap-y-20 bg-[url('../images/triangle.svg')] bg-no-repeat bg-center max-w-130 w-full">
-          <img class="js-hand cursor-pointer col-start-1 transition-all duration-300 hover:shadow-[0px_0px_0px_25px_#fff2] rounded-full relative left-10" src="/images/paper.svg" alt="paper">
-          <img class="js-hand cursor-pointer col-start-3 transition-all duration-300 hover:shadow-[0px_0px_0px_25px_#fff2] rounded-full relative right-10" src="/images/scissors.svg" alt="scissors">
-          <img class="js-hand cursor-pointer col-start-2 transition-all duration-300 hover:shadow-[0px_0px_0px_25px_#fff2] rounded-full row-start-2" src="/images/rock.svg" alt="rock">
-      </section>
+    <!-- game -->
+    <section id="gameZone" class="max-w-120 w-full mx-auto">
+      <!-- Basic mode -->
+      <div
+        id="basic"
+        class="grid grid-cols-3 gap-y-20 bg-[url('../images/triangle.svg')] bg-no-repeat bg-center"
+      >
+        <img
+          class="js-hand col-start-1 cursor-pointer transition-all duration-300 hover:shadow-[0px_0px_0px_25px_#fff2] rounded-full relative left-10"
+          src="/images/paper.svg"
+          alt="paper"
+        />
+        <img
+          class="js-hand cursor-pointer col-start-3 transition-all duration-300 hover:shadow-[0px_0px_0px_25px_#fff2] rounded-full relative right-10"
+          src="/images/scissors.svg"
+          alt="scissors"
+        />
+        <img
+          class="js-hand cursor-pointer col-start-2 transition-all duration-300 hover:shadow-[0px_0px_0px_25px_#fff2] rounded-full row-start-2"
+          src="/images/rock.svg"
+          alt="rock"
+        />
+      </div>
 
-      <!-- SWAP -->
+      <!-- Advansed mode -->
 
-      <section id="resultZone" class="flex gap-7.5 items-center justify-center max-w-225 w-full">
-        <img src="" id="user" class="cursor-pointer transition-all duration-300 rounded-full " alt="user">
-          <div class="flex flex-col items-center">
-            <h2 id="findWinner" class="text-[56px] text-white font-bold"></h2>
-            <button id="refreshGameButton" type="button" class="pt-3.75 pb-3.75 pl-15 pr-15 text-[16px] cursor-pointer bg-white rounded-lg text-black ">PLAY AGAIN</button>
-          </div>
-        <img src="" id="ai" class="cursor-pointer" alt="ai">
-      </section>
+      <div
+        id="advansed"
+        class="bg-[url('../images/polygon.svg')] bg-no-repeat bg-center bg-contain relative w-[500px] h-[500px] mx-auto"
+      >
+        <img
+          class="js-hand cursor-pointer w-[145px] absolute -right-5 top-1/4 transition-all duration-300 hover:shadow-[0_0_0_25px_#fff2] rounded-full"
+          src="/images/paper.svg"
+          alt="paper"
+        />
 
-      <!-- rules -->
+        <img
+          class="js-hand cursor-pointer w-[145px] absolute -top-5 left-1/2 -translate-x-1/2 transition-all duration-300 hover:shadow-[0_0_0_25px_#fff2] rounded-full"
+          src="/images/scissors.svg"
+          alt="scissors"
+        />
 
-      <section>
-        <a href="#" class="pt-2.5 pb-2.5 pl-9 pr-9 hover:text-black duration-500 font-medium border fixed bottom-20.5 tracking-[2.5px] rounded-lg border-white text-[16px] text-white hover:bg-white right-7.5" id="rules">RULES</a>
-        <a href="#" class="pt-2.5 pb-2.5 pl-9 pr-9 hover:text-black duration-500 font-medium border fixed bottom-7.5  tracking-[2.5px] rounded-lg border-white text-[16px] text-white hover:bg-white right-7.5" id="basic">BASIC</a>
-      </section>
-    </main>
+        <img
+          class="js-hand cursor-pointer w-[145px] absolute -bottom-5 left-10 transition-all duration-300 hover:shadow-[0_0_0_25px_#fff2] rounded-full"
+          src="/images/rock.svg"
+          alt="rock"
+        />
+
+        <img
+          class="js-hand cursor-pointer w-[145px] absolute -left-5 top-1/4 transition-all duration-300 hover:shadow-[0_0_0_25px_#fff2] rounded-full"
+          src="/images/spock.svg"
+          alt="spock"
+        />
+
+        <img
+          class="js-hand cursor-pointer w-[145px] absolute right-10 -bottom-5 transition-all duration-300 hover:shadow-[0_0_0_25px_#fff2] rounded-full"
+          src="/images/lizard.svg"
+          alt="lizard"
+        />
+      </div>
+    </section>
+
+    <!-- SWAP -->
+
+    <section
+      id="resultZone"
+      class="flex gap-7.5 items-center justify-center max-w-225 w-full mx-auto"
+    >
+      <img
+        src="./images/choosing.svg"
+        id="user"
+        class="cursor-pointer transition-all duration-300 rounded-full"
+        alt="user"
+      />
+      <div class="flex flex-col items-center">
+        <h2 id="findWinner" class="text-[46px] text-white font-bold"></h2>
+        <button
+          id="refreshGameButton"
+          type="button"
+          class="pt-3.75 mt-5 pb-3.75 pl-15 pr-15 text-[16px] cursor-pointer bg-white rounded-lg text-black"
+        >
+          PLAY AGAIN
+        </button>
+      </div>
+      <img src="" id="ai" class="cursor-pointer rounded-full" alt="ai" />
+    </section>
+
+    <!-- rules -->
+
+    <section>
+      <!-- RULES MODAL -->
+      <div
+        id="rulesModal"
+        class="fixed inset-0 bg-black/50 flex items-center justify-center opacity-0 pointer-events-none target:opacity-100 target:pointer-events-auto transition z-50">
+        <div class="bg-white rounded-xl p-8 relative w-[400px] max-w-[90%]">
+          <h2 class="text-2xl font-bold text-[#3B4262] mb-6">RULES</h2>
+
+          <img src="./images/rule-basic.svg" id="rulesImage" alt="rule-basic" class="mx-auto" />
+
+          <!-- CLOSE -->
+          <a href="#" class="absolute top-5 right-5 text-gray-400 hover:text-black text-3xl">
+            &times;
+          </a>
+        </div>
+      </div>
+
+      <a
+        href="#rulesModal"
+        class="pt-2.5 pb-2.5 pl-9 pr-9 hover:text-black duration-500 font-medium border fixed bottom-20.5 tracking-[2.5px] rounded-lg border-white text-[16px] text-white hover:bg-white right-7.5"
+        id="rules"
+      >
+        RULES
+    </a>
+      <button
+        class="pt-2.5 pb-2.5 pl-9 pr-9 hover:text-black duration-500 font-medium border fixed bottom-7.5 tracking-[2.5px] rounded-lg border-white text-[16px] text-white hover:bg-white right-7.5"
+        id="modeChanger"
+      >
+        BASIC
+      </button>
+    </section>
 
     <!-- script -->
     <script src="js/app.js" type="module"></script>
