@@ -16,7 +16,6 @@ import {
 
 const elRulesImage = document.querySelector('#rulesImage');
 
-
 let activeMode = 'advanced';
 
 function modeChanger() {
@@ -42,13 +41,10 @@ function modeChanger() {
   }
 }
 
-
-
-
 // AI choose
 
 function aiChoose() {
-  const hands = ['rock', 'paper', 'scissors', ];
+  const hands = ['rock', 'paper', 'scissors'];
   const randomIndex = Math.trunc(Math.random() * hands.length);
   return hands[randomIndex];
 }
@@ -69,7 +65,6 @@ elRefreshGameButton.addEventListener('click', () => {
   swapZone(false);
   elFindWinner.innerText = '';
 });
-
 
 // Find winner
 
@@ -108,7 +103,7 @@ function checkWinner(user, ai) {
   };
 
   if (user === ai) {
-    return "TIE";
+    return 'TIE';
   } else {
     return actions[user][ai];
   }
@@ -122,8 +117,8 @@ elHands.forEach((elHand) => {
   elHand.addEventListener('click', (evt) => {
     swapZone(true);
 
-    elUser.classList.remove(winShadow)
-    elAi.classList.remove(winShadow)
+    elUser.classList.remove(winShadow);
+    elAi.classList.remove(winShadow);
 
     const user = evt.target.alt;
     const ai = aiChoose();
@@ -137,7 +132,7 @@ elHands.forEach((elHand) => {
       if (winner === 'USER') {
         elFindWinner.innerText = 'YOU WIN';
         elUser.classList.add('shadow-[0_0_0_25px_#fff2]');
-        changeScore()
+        changeScore();
       } else if (winner === 'AI') {
         elFindWinner.innerText = 'YOU LOSE';
         elAi.classList.add('shadow-[0_0_0_25px_#fff2]');
@@ -146,7 +141,6 @@ elHands.forEach((elHand) => {
         elUser.classList.remove('shadow-[0_0_0_25px_#fff2]');
         elAi.classList.remove('shadow-[0_0_0_25px_#fff2]');
       }
-
     }, 1000);
   });
 });
@@ -157,18 +151,27 @@ elRefreshGameButton.addEventListener('click', () => {
   swapZone(false);
 });
 
-
 // Change score
 
-function changeScore() {
-  elScore.innerText = +elScore.innerText + 1;
-  
+let score = localStorage.getItem('score');
+
+if (score === null) {
+  score = 0;
+  localStorage.setItem('score', score);
 }
 
+elScore.innerText = score;
+
+function changeScore() {
+  let score = localStorage.getItem("score");
+  score = +score + 1
+  localStorage.setItem('score', score);
+  elScore.innerText = score;
+}
 
 // Change mode
-elModeChangerButton.addEventListener("click", modeChanger)
+elModeChangerButton.addEventListener('click', modeChanger);
 
 // Start
 
-modeChanger()
+modeChanger();
